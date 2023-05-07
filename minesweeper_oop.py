@@ -41,6 +41,7 @@ class Board():
         self.tiles = [[Tile() for i in range(new_size)] for j in range(new_size)]
         self.non_bomb_location_count = new_size * new_size - self.difficulty
     def modify_difficulty(self, new_difficulty):
+        self.difficulty = new_difficulty
         self.mine_locations = [[0 for i in range(2)] for j in range(new_difficulty)]
         self.non_bomb_location_count = self.size * self.size - new_difficulty
     def update_coords(self):
@@ -89,13 +90,16 @@ class Board():
             if coords in self.mine_neighbours:
                 self.tiles[x][y].uncover()
                 self.uncovered.append(coords)
+                self.uncovered_count += 1
             elif coords in self.mine_locations:
                 self.tiles[x][y].uncover()
                 self.uncovered.append(coords)
+                self.uncovered_count += 1
                 self.status = 2
             else:
                 self.tiles[x][y].uncover()
                 self.uncovered.append(coords)
+                self.uncovered_count += 1
                 self.uncover(x-1,y-1)
                 self.uncover(x-1,y)
                 self.uncover(x-1,y+1)
@@ -106,13 +110,15 @@ class Board():
                 self.uncover(x+1,y+1)
     def set_flag(self, x, y):
         self.tiles[x][y].flag()
+    def win_check(self):
+        return self.uncovered_count == self.non_bomb_location_count
 
-new_board = Board()
-new_board.modify_size(11)
-new_board.update_coords()
-new_board.set_mines()
-new_board.update_neighbours()
-new_board.uncover(1,2)
-new_board.uncover(4,5)
-new_board.set_flag(5,7)
-new_board.print_board()
+#new_board = Board()
+#new_board.modify_size(11)
+#new_board.update_coords()
+#new_board.set_mines()
+#new_board.update_neighbours()
+#new_board.uncover(1,2)
+#new_board.uncover(4,5)
+#new_board.set_flag(5,7)
+#new_board.print_board()
