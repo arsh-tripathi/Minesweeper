@@ -48,10 +48,13 @@ class Board():
         for i in range(self.size):
             for j in range(self.size):
                 self.tiles[i][j].set_coordinates(i,j)
+                self.tiles[i][j].display_value = 0
     def clear_uncovered(self):
         self.uncovered = 0
         self.uncovered = []
         self.uncovered_count = 0
+        self.mine_neighbours = 0
+        self.mine_neighbours = []
     def print_board(self):
         for i in range(self.size):
             for j in range(self.size):
