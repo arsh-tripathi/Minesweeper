@@ -48,6 +48,10 @@ class Board():
         for i in range(self.size):
             for j in range(self.size):
                 self.tiles[i][j].set_coordinates(i,j)
+    def clear_uncovered(self):
+        self.uncovered = 0
+        self.uncovered = []
+        self.uncovered_count = 0
     def print_board(self):
         for i in range(self.size):
             for j in range(self.size):
@@ -80,6 +84,7 @@ class Board():
     def setup_board(self, new_size, new_difficulty):
         self.modify_size(new_size)
         self.modify_difficulty(new_difficulty)
+        self.clear_uncovered()
         self.update_coords()
         self.set_mines()
         self.update_neighbours()
