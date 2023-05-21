@@ -36,7 +36,7 @@ def run(size,difficulty):
                         for y in range(size):
                             button_grid[x][y].destroy()
                 elif (result == 1):
-                    button_grid[i][j].configure(image='',text=result,relief="sunken",fg="blue", width=2,height=1)
+                    button_grid[i][j].configure(image='',text=result,relief="sunken",fg="yellow", width=2,height=1)
                 elif (result == 2):
                     button_grid[i][j].configure(image='',text=result,relief="sunken",fg="orange", width=2,height=1)
                 elif (result == 3):
