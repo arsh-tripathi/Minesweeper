@@ -1,4 +1,4 @@
-![Screenshot (44)](https://github.com/arsh-tripathi/Minesweeper/assets/110033985/e473802a-4445-4c3e-8305-0e508adf00c6)# Minesweeper
+# Minesweeper
 > Recreated Minesweeper
 
 Minesweeper is a one of the most famous games in the entire world. The goal is to identify the locations of mines and uncover all the non mine locations.
